@@ -61,7 +61,7 @@ const signupLimiter = rateLimit({
 // Routes
 
 app.get('/api/dashboard', (req, res) => {
-  res.json({ msg: 'Welcome to your dashboard!', user: req.user });
+  res.json({ msg: 'Welcome to your dashboard!' });
 });
 
 
