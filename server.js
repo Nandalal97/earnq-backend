@@ -25,14 +25,13 @@ const userCoin=require('./routes/coinRoutes')
 
 const adminRoute=require('./routes/Admin/adminRoutes')
 
-
 const app = express();
 app.use(cookieParser());
 connectdb();
 // Basic security middleware
 app.use(helmet());
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174','http://15.206.179.137/'],
+  origin: ['http://localhost:5173', 'http://localhost:5174', 'http://15.206.179.137/'],
   credentials: true
 }));
 
@@ -60,6 +59,12 @@ const signupLimiter = rateLimit({
 });
 
 // Routes
+
+app.get('/dashboard', (req, res) => {
+  res.json({ msg: 'Welcome to your dashboard!', user: req.user });
+});
+
+
 app.use('/api/auth',signupLimiter, authRoutes);
 app.use('/api/questions', questionRoutes)
 app.use('/api', categoryRoutes);
