@@ -32,7 +32,7 @@ connectdb();
 // Basic security middleware
 app.use(helmet());
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  origin: ['http://localhost:5173', 'http://localhost:5174','http://15.206.179.137/'],
   credentials: true
 }));
 
